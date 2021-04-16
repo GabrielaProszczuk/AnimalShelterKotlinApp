@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="loginButton">LOGIN</string>
+    <string name="listButton">Find me on the list 🔍</string>
+    <string name="mapButton">Shelters map</string>
+    <string name="dogTextView">🐶</string>
+    <string name="nameTextView">Doggy</string>
+    <string name="cityTextView">London</string>
+</resources>
