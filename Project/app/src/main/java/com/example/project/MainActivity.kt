@@ -20,8 +20,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ListActivity::class.java)
         startActivity(intent)
     }
-    fun toLogin(view: View) {
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-    }
 }

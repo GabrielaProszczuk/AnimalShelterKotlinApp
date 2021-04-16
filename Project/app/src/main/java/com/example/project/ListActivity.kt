@@ -23,7 +23,7 @@ class ListActivity : AppCompatActivity() {
         dogsRecycler.layoutManager = LinearLayoutManager(this)
         adapter = DogsAdapter(emptyArray(), this)
         dogsRecycler.adapter = adapter
-        makeRequest()
+        //makeRequest()
     }
 
     private fun makeRequest(){

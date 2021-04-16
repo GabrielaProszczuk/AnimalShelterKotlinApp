@@ -4,25 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="147dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="160dp"
-        android:onClick="toLogin"
-        android:text="@string/loginButton"
-        android:textSize="30sp"
-        app:backgroundTint="#009688"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/listButton"
-        android:layout_width="146dp"
-        android:layout_height="60dp"
+        android:layout_width="173dp"
+        android:layout_height="85dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -30,22 +18,35 @@
         android:onClick="toList"
         android:text="@string/listButton"
         android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        app:backgroundTint="@color/teal_700"
+        android:textSize="18sp"
+        app:backgroundTint="#E34E20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/mapButton"
-        android:layout_width="163dp"
-        android:layout_height="60dp"
+        android:layout_width="191dp"
+        android:layout_height="85dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:onClick="toMap"
         android:text="@string/mapButton"
-        app:backgroundTint="#009688"
+        android:textSize="18sp"
+        app:backgroundTint="#E34E20"
+        app:layout_constraintEnd_toStartOf="@+id/listButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/dog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
