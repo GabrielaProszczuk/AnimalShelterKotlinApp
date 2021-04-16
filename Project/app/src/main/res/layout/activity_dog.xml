@@ -6,4 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".DogActivity">
 
+    <ImageView
+        android:id="@+id/imageDogProfile"
+        android:layout_width="419dp"
+        android:layout_height="349dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dog" />
+
+    <TextView
+        android:id="@+id/nameDogProfile"
+        android:layout_width="157dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="238dp"
+        android:layout_marginLeft="238dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/nameDogProfile"
+        android:textColor="#272222"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageDogProfile" />
+
+    <TextView
+        android:id="@+id/cityDogProfile"
+        android:layout_width="159dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="237dp"
+        android:layout_marginLeft="237dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/cityDogProfile"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameDogProfile" />
+
+    <TextView
+        android:id="@+id/descDogProfile"
+        android:layout_width="240dp"
+        android:layout_height="227dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/descDogProfile"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/adoptButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/adoptButton"
+        app:backgroundTint="#E34E20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,8 @@
     <string name="dogTextView">🐶</string>
     <string name="nameTextView">Doggy</string>
     <string name="cityTextView">London</string>
+    <string name="adoptButton">Adopt</string>
+    <string name="descDogProfile">Best dog ever, really good boy, perfect.</string>
+    <string name="nameDogProfile">Puppy</string>
+    <string name="cityDogProfile">London</string>
 </resources>
