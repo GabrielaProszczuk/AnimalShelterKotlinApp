@@ -1,5 +1,6 @@
 package com.example.gabriela_proszczuk_czw_9_30
 
+import android.content.ClipDescription
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -35,11 +36,17 @@ class DogsAdapter(var dataSet: Array<Dog>, val context: Context): RecyclerView.A
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val dog = dataSet[position]
-        viewHolder.itemView.setOnClickListener{ goToDetails()}
+        viewHolder.name.text = dog.name
+        viewHolder.city.text = dog.city
+        viewHolder.itemView.setOnClickListener{ goToDetails(dog.name, dog.description, dog.city)}
     }
 
-    private fun goToDetails() {
-        val intent = Intent(context, DogActivity::class.java)
+    private fun goToDetails(name: String, description: String, city: String) {
+        val intent = Intent(context, DogActivity::class.java).apply{
+            putExtra("name", name)
+            putExtra("description", description)
+            putExtra("city", city)
+        }
         context.startActivity(intent)
     }
 

@@ -25,6 +25,7 @@ class ListActivity : AppCompatActivity() {
         dogsRecycler.adapter = adapter
         //makeRequest()
         adapter.dataSet = loadData()
+        adapter.notifyDataSetChanged()
 
     }
 
@@ -48,8 +49,7 @@ class ListActivity : AppCompatActivity() {
     private fun loadData(): Array<Dog> {
             val tmpData = arrayOfNulls<Dog>(10)
             for(i in 0 until (10)){
-                    val dogObject = Dog("Dog", "London")
-
+                    val dogObject = Dog("Molly", "New York", "Super pretty and smart", i)
                     tmpData[i]=dogObject
                 }
             return tmpData as Array<Dog>
