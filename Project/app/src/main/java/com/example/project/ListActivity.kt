@@ -23,20 +23,20 @@ class ListActivity : AppCompatActivity() {
         dogsRecycler.layoutManager = LinearLayoutManager(this)
         adapter = DogsAdapter(emptyArray(), this)
         dogsRecycler.adapter = adapter
-        //makeRequest()
-        adapter.dataSet = loadData()
-        adapter.notifyDataSetChanged()
+        makeRequest()
+        //adapter.dataSet = loadData()
+        //adapter.notifyDataSetChanged()
 
     }
 
     private fun makeRequest(){
         val queue = DataHolder.queue
-        val url = "http://api.nbp.pl/api/exchangerates/tables/A/last/2?format=json"
+        val url = "https://adoptdogsapi.herokuapp.com/api/v1/dogs/"
         val dogListRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
             Response.Listener {
                     response ->
-                adapter.dataSet = loadData()
+                adapter.dataSet = loadData(response)
                 adapter.notifyDataSetChanged()
 
             },
@@ -46,12 +46,31 @@ class ListActivity : AppCompatActivity() {
         queue.add(dogListRequest)
     }
 
-    private fun loadData(): Array<Dog> {
-            val tmpData = arrayOfNulls<Dog>(10)
+    private fun loadData(response: JSONArray?): Array<Dog> {
+        response?.let{
+            val dogsCount = response.length()
+            val tmpData = arrayOfNulls<Dog>(dogsCount)
+            for(i in 0 until dogsCount){
+                val name = response.getJSONObject(i).getString("name")
+                val city = response.getJSONObject(i).getString("city")
+                val description = response.getJSONObject(i).getString("description")
+
+                val dogObject = Dog(name, city, description, 2131165395)
+
+                tmpData[i]=dogObject
+            }
+            return tmpData as Array<Dog>
+        }
+        return emptyArray()
+    }
+/*
+ val tmpData = arrayOfNulls<Dog>(10)
             for(i in 0 until (10)){
                     val dogObject = Dog("Molly", "New York", "Super pretty and smart", i)
                     tmpData[i]=dogObject
                 }
             return tmpData as Array<Dog>
-        }
+**/
+
+
 }

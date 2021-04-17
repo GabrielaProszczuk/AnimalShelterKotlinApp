@@ -9,4 +9,5 @@
     <string name="descDogProfile">Best dog ever, really good boy, perfect.</string>
     <string name="nameDogProfile">Puppy</string>
     <string name="cityDogProfile">London</string>
+    <string name="buttonPrevious">✖</string>
 </resources>

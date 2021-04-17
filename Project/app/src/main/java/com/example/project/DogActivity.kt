@@ -1,8 +1,10 @@
 package com.example.project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.ParcelFileDescriptor
+import android.view.View
 import android.widget.TextView
 
 class DogActivity : AppCompatActivity() {
@@ -19,5 +21,10 @@ class DogActivity : AppCompatActivity() {
         city.text = intent.getStringExtra("city")!!
         description = findViewById(R.id.descDogProfile)
         description.text = intent.getStringExtra("description")!!
+    }
+
+    fun toAdopt(view: View) {
+        val intent = Intent(this, AdoptActivity::class.java)
+        startActivity(intent)
     }
 }
