@@ -18,8 +18,8 @@
 
     <TextView
         android:id="@+id/nameDogProfile"
-        android:layout_width="157dp"
-        android:layout_height="55dp"
+        android:layout_width="154dp"
+        android:layout_height="46dp"
         android:layout_marginStart="238dp"
         android:layout_marginLeft="238dp"
         android:layout_marginEnd="16dp"
@@ -51,13 +51,16 @@
         android:id="@+id/descDogProfile"
         android:layout_width="240dp"
         android:layout_height="227dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:layout_marginBottom="32dp"
         android:text="@string/descDogProfile"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageDogProfile" />
 
     <Button
         android:id="@+id/adoptButton"

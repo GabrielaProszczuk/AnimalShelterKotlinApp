@@ -24,6 +24,8 @@ class ListActivity : AppCompatActivity() {
         adapter = DogsAdapter(emptyArray(), this)
         dogsRecycler.adapter = adapter
         //makeRequest()
+        adapter.dataSet = loadData()
+
     }
 
     private fun makeRequest(){
@@ -33,7 +35,7 @@ class ListActivity : AppCompatActivity() {
             Request.Method.GET, url, null,
             Response.Listener {
                     response ->
-                adapter.dataSet = loadData(response)
+                adapter.dataSet = loadData()
                 adapter.notifyDataSetChanged()
 
             },
@@ -43,7 +45,13 @@ class ListActivity : AppCompatActivity() {
         queue.add(dogListRequest)
     }
 
-    private fun loadData(response: JSONArray?): Array<Dog> {
-        TODO()
-    }
+    private fun loadData(): Array<Dog> {
+            val tmpData = arrayOfNulls<Dog>(10)
+            for(i in 0 until (10)){
+                    val dogObject = Dog("Dog", "London")
+
+                    tmpData[i]=dogObject
+                }
+            return tmpData as Array<Dog>
+        }
 }
