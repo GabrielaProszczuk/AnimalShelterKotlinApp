@@ -1,8 +1,11 @@
 package com.example.project
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
+import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -16,6 +19,7 @@ import org.json.JSONArray
 class ListActivity : AppCompatActivity() {
     internal lateinit var dogsRecycler: RecyclerView
     internal lateinit var adapter: DogsAdapter
+    internal lateinit var searched: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
@@ -26,7 +30,54 @@ class ListActivity : AppCompatActivity() {
         makeRequest()
         //adapter.dataSet = loadData()
         //adapter.notifyDataSetChanged()
+        searched = ""
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main,menu)
+
+        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchItem = menu?.findItem(R.id.menu_search)
+        val searchView = searchItem?.actionView as SearchView
+        searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
+
+        searchView.setOnCloseListener(SearchView.OnCloseListener {
+            makeRequest()
+            true
+        })
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean{
+                searchView.clearFocus()
+                searchView.setQuery("",false)
+                searchItem.collapseActionView()
+                val array = adapter.dataSet.filter { it.city.toLowerCase() == query?.toLowerCase() || it.name.toLowerCase() == query?.toLowerCase()}
+                adapter.dataSet = array.toTypedArray()
+                adapter.notifyDataSetChanged()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val new:CharSequence
+                if (newText != null) {
+                    new = newText
+                }else{
+                    new = ""
+                }
+                if(searched.length > new.length){
+                    makeRequest()
+                }
+                val array = adapter.dataSet.filter { it.city.contains(new,true) || it.name.contains(new, true) }
+                adapter.dataSet = array.toTypedArray()
+                adapter.notifyDataSetChanged()
+                if (newText != null) {
+                    searched = newText
+                }
+                return false
+            }
+        })
+        return true
     }
 
     private fun makeRequest(){
