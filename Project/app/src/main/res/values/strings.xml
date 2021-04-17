@@ -10,4 +10,16 @@
     <string name="nameDogProfile">Puppy</string>
     <string name="cityDogProfile">London</string>
     <string name="buttonPrevious">✖</string>
+    <string name="nameText"/>
+    <string name="surnameText"/>
+    <string name="emailText"/>
+    <string name="phoneText"/>
+    <string name="applicationText"/>
+    <string name="firstName">First name: </string>
+    <string name="lastName">Last name: </string>
+    <string name="header">Fill your application to adopt!</string>
+    <string name="email">E-mail: </string>
+    <string name="phone">Phone: </string>
+    <string name="sendButton">Send application</string>
+    <string name="application">Your application: </string>
 </resources>

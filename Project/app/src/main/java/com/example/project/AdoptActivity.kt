@@ -18,4 +18,7 @@ class AdoptActivity : AppCompatActivity() {
             }
         })
     }
+    fun send(view: View){
+        TODO()
+    }
 }
