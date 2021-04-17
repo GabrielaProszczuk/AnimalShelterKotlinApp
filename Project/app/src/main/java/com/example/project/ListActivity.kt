@@ -36,8 +36,9 @@ class ListActivity : AppCompatActivity() {
             Request.Method.GET, url, null,
             Response.Listener {
                     response ->
-                adapter.dataSet = loadData(response)
-                adapter.notifyDataSetChanged()
+                //println(response)
+               adapter.dataSet = loadData(response)
+               adapter.notifyDataSetChanged()
 
             },
             Response.ErrorListener {
@@ -54,8 +55,8 @@ class ListActivity : AppCompatActivity() {
                 val name = response.getJSONObject(i).getString("name")
                 val city = response.getJSONObject(i).getString("city")
                 val description = response.getJSONObject(i).getString("description")
-
-                val dogObject = Dog(name, city, description, 2131165395)
+                val imageUrl = response.getJSONObject(i).getString("photo")
+                val dogObject = Dog(name, city, description, imageUrl)
 
                 tmpData[i]=dogObject
             }
@@ -63,14 +64,4 @@ class ListActivity : AppCompatActivity() {
         }
         return emptyArray()
     }
-/*
- val tmpData = arrayOfNulls<Dog>(10)
-            for(i in 0 until (10)){
-                    val dogObject = Dog("Molly", "New York", "Super pretty and smart", i)
-                    tmpData[i]=dogObject
-                }
-            return tmpData as Array<Dog>
-**/
-
-
 }

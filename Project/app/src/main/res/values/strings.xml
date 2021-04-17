@@ -22,4 +22,5 @@
     <string name="phone">Phone: </string>
     <string name="sendButton">Send application</string>
     <string name="application">Your application: </string>
+    <string name="thankyou"/>
 </resources>
