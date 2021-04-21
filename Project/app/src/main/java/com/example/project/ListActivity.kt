@@ -87,10 +87,9 @@ class ListActivity : AppCompatActivity() {
             Request.Method.GET, url, null,
             Response.Listener {
                     response ->
-                //println(response)
-               adapter.dataSet = loadData(response)
-               adapter.notifyDataSetChanged()
-
+                       // println(response)
+                       adapter.dataSet = loadData(response)
+                       adapter.notifyDataSetChanged()
             },
             Response.ErrorListener {
                 TODO()
@@ -105,9 +104,10 @@ class ListActivity : AppCompatActivity() {
             for(i in 0 until dogsCount){
                 val name = response.getJSONObject(i).getString("name")
                 val city = response.getJSONObject(i).getString("city")
+                val street = response.getJSONObject(i).getString("street")
                 val description = response.getJSONObject(i).getString("description")
                 val imageUrl = response.getJSONObject(i).getString("photo")
-                val dogObject = Dog(name, city, description, imageUrl)
+                val dogObject = Dog(name, street, city, description, imageUrl)
 
                 tmpData[i]=dogObject
             }
